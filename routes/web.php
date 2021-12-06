@@ -23,5 +23,5 @@ Route::get('user/', function () {
     return view('welcome');
 });
 Route::get('/', function () {
-    return view('intro.index2');
+    return view('intro.index');
 });
