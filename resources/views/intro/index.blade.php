@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JKS</title>
+    <title>Bistro</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/intro/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/intro/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/intro/bistro-icons.css') }}">
@@ -30,9 +30,9 @@
 
 <!--Loader-->
 <div class="loader">
-    <div class="cssload-container">
-        <div class="cssload-circle"></div>
-        <div class="cssload-circle"></div>
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
     </div>
 </div>
 
@@ -41,8 +41,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p class="pull-left hidden-xs">JKS Foods and Restaurant, the Best in Town</p>
-                <p class="pull-right"><i class="fa fa-phone"></i>Order Online +91-892-808-5056</p>
+                <p class="pull-left hidden-xs">Bistro Foods and Restaurant, the Best in Town</p>
+                <p class="pull-right"><i class="fa fa-phone"></i>Order Online 111-123-6789</p>
             </div>
         </div>
     </div>
@@ -59,24 +59,39 @@
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fixed-collapse-navbar" aria-expanded="false">
                                 <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo" class="img-responsive"></a>
+                            <a class="navbar-brand logo-center" href="index.html"><img src="images/logo.png" alt="logo" class="img-responsive"></a>
                         </div>
 
-                        <div id="fixed-collapse-navbar" class="navbar-collapse collapse navbar-right">
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    <a href="index.html">Home</a>
+                        <div id="fixed-collapse-navbar" class="navbar-collapse collapse">
 
-                                </li>
-                                <li><a href="food.html">Our Food</a></li>
-
-
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-
-                                <li><a href="./account/register.php">Order Now</a></li>
-
-                            </ul>
+                            <div class="navbar-left-1">
+                                <ul class="nav navbar-nav  navbar-left">
+                                    <li class="dropdown active">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                                    </li>
+                                    <li><a href="{{ asset('food') }}">Our Food</a></li>
+                                    <li class="dropdown">
+                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">pages</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{{ asset('about') }}">About Us</a></li>
+                                            <li><a href="{{ asset('faq') }}">FAQ</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="{{ asset('gallery') }}">gallery</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="navbar-right-1">
+                                <ul class="nav navbar-nav  navbar-right">
+                                    <li><a href="{{ asset('menu') }}">Menu</a></li>
+                                    <li><a href="{{ asset('blog') }}">blog</a></li>
+                                    <li><a href="">Order Now</a></li>
+                                    <li class="dropdown">
+                                        <a  href="{{ asset('location') }}" >Location</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </nav>
                 </div>
@@ -88,18 +103,17 @@
 
 
 <!-- REVOLUTION SLIDER -->
-
-<div id="rev_slider_34_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="news-gallery34" style="margin:0px auto;background-color:#ffffff;padding:0px;margin-top:0px;margin-bottom:0px;">
-    <!-- START REVOLUTION SLIDER 5.0.7 fullwidth mode -->
-    <div id="rev_slider_34_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
-        <ul>	<!-- SLIDE  -->
-            <li data-index="rs-129" data-transition="fade" data-slotamount="default" data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7"  data-title="Fish &nbsp; Steak" data-description="Enjoy Delicious Food!">
+<section class="rev_slider_wrapper">
+    <div id="rev_slider" class="rev_slider"  data-version="5.0">
+        <ul>
+            <!-- SLIDE  -->
+            <li data-transition="fade">
                 <!-- MAIN IMAGE -->
-                <img src="images/banner2.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                <!-- LAYER NR. 2 -->
-                <h1 class="tp-caption tp-resizeme"
-                    data-x="left" data-hoffset="15"
-                    data-y="70"
+                <img src="images/hom2-banner1.jpg" alt="" data-bgposition="center center" data-bgfit="cover">
+                <!-- LAYER NR. 1 -->
+                <h1 class="tp-caption tp-resizeme text-center"
+                    data-x="center" data-hoffset="15"
+                    data-y="170"
                     data-transform_idle="o:1;"
                     data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
                     data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
@@ -112,66 +126,21 @@
                     <span class="small_title">Yes We Have</span> <br> The &nbsp; Best &nbsp; Fish &nbsp;<span class="color">Steak</span>
                 </h1>
                 <!-- LAYER NR. 2 -->
-                <p class="tp-caption tp-resizeme"
-                   data-x="left" data-hoffset="15"
-                   data-y="210"
-                   data-transform_idle="o:1;"
-                   data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
-                   data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
-                   data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                   data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-                   data-start="800"
-                   style="z-index: 9;">Enjoy Delicious Food!
-
-                </p>
-                <div class="tp-caption fade tp-resizeme"
-                     data-x="left" data-hoffset="15"
-                     data-y="280"
-                     data-width = "full"
-                     data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
-                     data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
-                     data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                     data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-                     data-start="1200"
-                     style="z-index: 12;">
-                    <a href="./account/register.php" class="btn-common btn-white page-scroll">Order Now</a>
-                </div>
-
-
-            </li>
-
-            <li class="text-center" data-index="rs-130" data-transition="slideleft" data-slotamount="default" data-rotate="0"  data-title="Bakery &nbsp; Items" data-description="Enjoy Delicious Food!">
-                <img src="images/banner1.jpg"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                <h1 class="tp-caption tp-resizeme"
-                    data-x="center" data-hoffset="15"
-                    data-y="70"
-                    data-transform_idle="o:1;"
-                    data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
-                    data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
-                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                    data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-                    data-start="500"
-                    data-splitin="none"
-                    data-splitout="none"
-                    style="z-index: 6;">
-                    <span class="small_title">  Delicious Bakery Items</span> <br> Coconut &nbsp; with &nbsp; <span class="color">Lemon &nbsp; Grass</span>
-                </h1>
-                <p class="tp-caption tp-resizeme"
+                <p class="tp-caption tp-resizeme text-center"
                    data-x="center" data-hoffset="15"
-                   data-y="210"
+                   data-y="310"
                    data-transform_idle="o:1;"
                    data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
                    data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
                    data-mask_out="x:0;y:0;s:inherit;e:inherit;"
                    data-start="800"
-                   style="z-index: 9;">Enjoy Delicious Food!
+                   style="z-index: 9;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,<br>sed diam nonummy nibh euismod.
+
                 </p>
-
-
-                <div class="tp-caption fade tp-resizeme"
+                <div class="tp-caption fade tp-resizeme text-center"
                      data-x="center" data-hoffset="15"
-                     data-y="280"
+                     data-y="380"
                      data-width = "full"
                      data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
                      data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
@@ -179,18 +148,15 @@
                      data-mask_out="x:0;y:0;s:inherit;e:inherit;"
                      data-start="1200"
                      style="z-index: 12;">
-                    <a href="#specialities" class="btn-common btn-white page-scroll">Learn &nbsp; More</a> &nbsp; <a href="#order-form" class="btn-common btn-orange page-scroll">Order &nbsp; Now</a>
+                    <a href="#order-form" class="btn-common btn-white page-scroll">Order Now</a>
                 </div>
-
-
-
             </li>
 
-            <li class="text-right" data-index="rs-131" data-transition="slideleft"   data-rotate="0" data-title="Fresh &nbsp; Food" data-description="Enjoy Delicious Food!">
-                <img src="images/banner4.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                <h1 class="tp-caption tp-resizeme"
-                    data-x="right" data-hoffset=""
-                    data-y="70"
+            <li data-transition="fade text-center">
+                <img src="images/hom2-banner2.jpg"  alt="" data-bgposition="center center" data-bgfit="cover">
+                <h1 class="tp-caption tp-resizeme text-center"
+                    data-x="center" data-hoffset="15"
+                    data-y="170"
                     data-transform_idle="o:1;"
                     data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
                     data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
@@ -200,40 +166,39 @@
                     data-splitin="none"
                     data-splitout="none"
                     style="z-index: 6;">
-                    <span class="small_title">We Prepare</span> <br> Fresh &nbsp; Food &nbsp; <span class="color">Vegies</span>
+                    <span class="small_title">Yes We Have</span> <br> The &nbsp; Best &nbsp; Fish &nbsp;<span class="color">Steak</span>
                 </h1>
-                <p class="tp-caption tp-resizeme"
-                   data-x="right" data-hoffset=""
-                   data-y="210"
+                <!-- LAYER NR. 2 -->
+                <p class="tp-caption tp-resizeme text-center"
+                   data-x="center" data-hoffset="15"
+                   data-y="310"
                    data-transform_idle="o:1;"
                    data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
                    data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
                    data-mask_out="x:0;y:0;s:inherit;e:inherit;"
                    data-start="800"
-                   style="z-index: 9;">Enjoy Delicious Food!
-                </p>
+                   style="z-index: 9;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,<br>sed diam nonummy nibh euismod.
 
-                <div class="tp-caption fade tp-resizeme"
-                     data-x="right" data-hoffset=""
-                     data-y="280"
+                </p>
+                <div class="tp-caption fade tp-resizeme text-center"
+                     data-x="center" data-hoffset="15"
+                     data-y="380"
                      data-width = "full"
-                     data-transform_idle="o:1;"
                      data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
                      data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
                      data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
                      data-mask_out="x:0;y:0;s:inherit;e:inherit;"
                      data-start="1200"
                      style="z-index: 12;">
-                    <a href="./account/register.php" class="btn-common btn-white page-scroll">Order Now</a>
+                    <a href="#order-form" class="btn-common btn-white page-scroll">Order Now</a>
                 </div>
             </li>
-            <!-- SLIDE  -->
         </ul>
     </div>
-</div>
-<!-- END REVOLUTION SLIDER -->
+</section>
 
+<!-- END REVOLUTION SLIDER -->
 
 
 
@@ -250,23 +215,23 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 feature text-center">
                 <i class="icon-glass"></i>
-                <h3><a href="./account/register.php">Dinner &amp; Dessert</a></h3>
-                <p> Enjoy Delicious Food!</p>
+                <h3><a href="services.html">Dinner &amp; Dessert</a></h3>
+                <p> you need a doctor for to consectetuer Lorem ipsum dolor, consectetur adipiscing onsectetur.</p>
             </div>
             <div class="col-md-3 col-sm-6 feature text-center">
                 <i class="icon-coffee"></i>
-                <h3><a href="./account/register.php">Breakfast</a></h3>
-                <p> Enjoy Delicious Food!</p>
+                <h3><a href="services.html">Breakfast</a></h3>
+                <p> you need a doctor for to consectetuer Lorem ipsum dolor, consectetur adipiscing onsectetur Graphic.</p>
             </div>
             <div class="col-md-3 col-sm-6 feature text-center">
                 <i class="icon-glass"></i>
-                <h3><a href="./account/register.php">Ice Shakes</a></h3>
-                <p> Enjoy Delicious Food!</p>
+                <h3><a href="services.html">Ice Shakes</a></h3>
+                <p> you need a doctor for to consectetuer Lorem ipsum dolor, consectetur adipiscing onsectetur Graphic Power.</p>
             </div>
             <div class="col-md-3 col-sm-6 feature text-center">
                 <i class="icon-coffee"></i>
-                <h3><a href="./account/register.php">Beverges</a></h3>
-                <p> Enjoy Delicious Food!</p>
+                <h3><a href="services.html">Beverges</a></h3>
+                <p> you need a doctor for to coansectetuer Lorem ipsum dolor, consectetur adipiscing.</p>
             </div>
         </div>
 
@@ -287,40 +252,40 @@
                             <div class="item_inner">
                                 <div class="image">
                                     <img src="images/food-1.jpg" alt="Services Image">
-                                    <a  href="./account/register.php"></a>
+                                    <a  href="services.html"></a>
                                 </div>
-                                <h3><a href="./account/register.php">Thai Chicken Chilly</a></h3>
-                                <p>Enjoy Delicious Food!</p>
+                                <h3><a href="services.html">Lorem ipsum dolor</a></h3>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
                             </div>
                         </div>
                         <div class="item">
                             <div class="item_inner">
                                 <div class="image">
                                     <img src="images/food-2.jpg" alt="Services Image">
-                                    <a  href="./account/register.php"></a>
+                                    <a  href="services.html"></a>
                                 </div>
-                                <h3><a href="./account/register.php">Celeriac Soup & Beer</a></h3>
-                                <p>Enjoy Delicious Food!</p>
+                                <h3><a href="services.html">Lorem samet</a></h3>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
                             </div>
                         </div>
                         <div class="item">
                             <div class="item_inner">
                                 <div class="image">
                                     <img src="images/food-3.jpg" alt="Services Image">
-                                    <a  href="./account/register.php"></a>
+                                    <a  href="services.html"></a>
                                 </div>
-                                <h3><a href="./account/register.php">Tex Mex Chicken</a></h3>
-                                <p>Enjoy Delicious Food!</p>
+                                <h3><a href="services.html">Lorem ipsum dolor s amet</a></h3>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
                             </div>
                         </div>
                         <div class="item">
                             <div class="item_inner">
                                 <div class="image">
                                     <img src="images/food-4.jpg" alt="Services Image">
-                                    <a  href="./account/register.php"></a>
+                                    <a  href="services.html"></a>
                                 </div>
-                                <h3><a href="./account/register.php">Baked Potato Jackets</a></h3>
-                                <p>Enjoy Delicious Food!</p>
+                                <h3><a href="services.html">Lorem samet</a></h3>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
                             </div>
                         </div>
                     </div>
@@ -330,17 +295,17 @@
                 <h2 class="heading">Our &nbsp; Menu</h2>
                 <hr class="heading_space">
                 <ul class="menu_widget">
-                    <li>Classic Nachos<span>INR 499.00</span></li>
-                    <li>Nachos Grande<span>INR 249.00</span></li>
-                    <li>Avocado Shell Stuffed<span>INR 150.00</span></li>
-                    <li>Stuffed Mushroom<span>INR 199.00</span></li>
-                    <li>Baked Potato Jackets<span>INR 99.00</span></li>
-                    <li>Mexican Taco<span>INR 899.00</span></li>
-                    <li>Tex-Mex Chicken<span>INR 1250.00</span></li>
-                    <li>Quesadillas Acapulco<span>INR 399.00</span></li>
+                    <li>Classic Nachos<span>$499.00</span></li>
+                    <li>Nachos Grande<span>$249.00</span></li>
+                    <li>Avocado Shell Stuffed<span>$150.00</span></li>
+                    <li>Stuffed Mushroom<span>$199.00</span></li>
+                    <li>Baked Potato Jackets<span>$99.00</span></li>
+                    <li>Mexican Taco<span>$899.00</span></li>
+                    <li>Tex-Mex Chicken<span>$1250.00</span></li>
+                    <li>Quesadillas Acapulco<span>$399.00</span></li>
                 </ul>
                 <h3>Other Special Menu</h3>
-                <p>Enjoy Delicious Food!</p>
+                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse <strong>molestie consequat</strong>, vel illum dolore nulla facilisis.</p>
             </div>
         </div>
     </div>
@@ -355,8 +320,8 @@
             <div class="col-md-8">
                 <div class="text-center">
                     <h2 class="heading_space">HOT Deal of the Day</h2>
-                    <p class="heading_space detail">Enjoy Delicious Food!</p>
-                    <a href="./account/register.php" class="btn-common-white page-scroll">Order Now</a>
+                    <p class="heading_space detail">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis. velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
+                    <a href="#order-form" class="btn-common-white page-scroll">Order Now</a>
                 </div>
             </div>
             <div class="col-md-2"></div>
@@ -514,6 +479,7 @@
                 </div>
             </div>
             <div class="col-sm-3 col-xs-12 text-center wow fadeInDown" data-wow-duration="500ms" data-wow-delay="900ms">
+
                 <div class="counters-item  row">
                     <i class="icon-glass"></i>
                     <h2><strong data-to="510">0</strong></h2>
@@ -530,6 +496,7 @@
         </div>
     </div>
 </section>
+
 
 
 
@@ -551,7 +518,7 @@
                                 <img src="images/our-cheffs1.jpg" alt="Kitchen Staff">
                                 <h3>Stafeny Rose</h3>
                                 <small>Head Of Kitchen</small>
-                                <p>Enjoy Delicious Food!</p>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
                             </div>
                         </div>
                         <div class="item">
@@ -559,7 +526,7 @@
                                 <img src="images/our-cheffs2.jpg" alt="Kitchen Staff">
                                 <h3>Michael Reubens</h3>
                                 <small>Food Supervisor</small>
-                                <p>Enjoy Delicious Food!</p>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
                             </div>
                         </div>
                         <div class="item">
@@ -567,7 +534,7 @@
                                 <img src="images/our-cheffs3.jpg" alt="Kitchen Staff">
                                 <h3>Angle Maria</h3>
                                 <small>Head Cook</small>
-                                <p>Enjoy Delicious Food!</p>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
                             </div>
                         </div>
                         <div class="item">
@@ -575,7 +542,7 @@
                                 <img src="images/our-cheffs1.jpg" alt="Kitchen Staff">
                                 <h3>Stafeny Rose</h3>
                                 <small>Food Supervisor</small>
-                                <p>Enjoy Delicious Food!</p>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
                             </div>
                         </div>
                         <div class="item">
@@ -583,7 +550,7 @@
                                 <img src="images/our-cheffs2.jpg" alt="Kitchen Staff">
                                 <h3>David Miller</h3>
                                 <small>Food Supervisor</small>
-                                <p>Enjoy Delicious Food!</p>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
                             </div>
                         </div>
                         <div class="item">
@@ -591,7 +558,7 @@
                                 <img src="images/our-cheffs3.jpg" alt="Kitchen Staff">
                                 <h3>Cristina Rose</h3>
                                 <small>Food Supervisor</small>
-                                <p>Enjoy Delicious Food!</p>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
                             </div>
                         </div>
                     </div>
@@ -600,6 +567,76 @@
         </div>
     </div>
 </section>
+
+
+
+<!-- Order Online -->
+<section id="order-form" class="order_section">
+    <div class="container order_form padding">
+        <div class="row">
+            <div class="col-md-12 appointment_form">
+                <h2 class="heading">Online Order</h2>
+                <hr class="heading_space">
+                <div class="row">
+                    <div class="col-md-8">
+                        <form onSubmit="return false" id="order_form" class="callus">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <div id="result" class="text-center"></div></div></div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                                </div></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Name"  name="name" id="name"  required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email address" name="email" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Phone No" name="phone" id="phone" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        <select class="form-control" id="deal" name="deal">
+                                            <option> Select Deal </option>
+                                            <option> Deal One ($200) </option>
+                                            <option> Deal Two ($500) </option>
+                                            <option> Deal Three ($900) </option>
+                                            <option> Deal Four ($1300) </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea placeholder="Order Details"  id="message" name="message" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="btn-submit btn-common-white">
+                                            <input type="submit" value="Place &nbsp; Order" id="btn_order_submit" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</section>
+
 
 
 
@@ -626,21 +663,22 @@
                                     <a href="#."><i class="icon-comment"></i> 5</a>
                                 </div>
                                 <div class="comment_text">
-                                    <h3><a href="#.">Quesadillas Acapulco</a></h3>
-                                    <p>Enjoy Delicious Food!</p>
+                                    <h3><a href="#.">Lorem ipsum dolor</a></h3>
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="news_content">
+
                                 <img src="images/news-img2.jpg" alt="Docotor">
                                 <div class="date_comment">
                                     <span>22<small>apr</small></span>
                                     <a href="#."><i class="icon-comment"></i> 5</a>
                                 </div>
                                 <div class="comment_text">
-                                    <h3><a href="#.">Barbecue Beef</a></h3>
-                                    <p>Enjoy Delicious Food!</p>
+                                    <h3><a href="#.">Lorem ipsum</a></h3>
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
                                 </div>
                             </div>
                         </div>
@@ -652,22 +690,47 @@
                                     <a href="#."><i class="icon-comment"></i> 5</a>
                                 </div>
                                 <div class="comment_text">
-                                    <h3><a href="#.">Mexican Taco</a></h3>
-                                    <p>Enjoy Delicious Food!</p>
+                                    <h3><a href="#.">Lorem ipsum dolor</a></h3>
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
                                 </div>
                             </div>
                         </div>
-
                         <div class="item">
                             <div class="news_content">
-                                <img src="images/food-1.jpg" alt="Docotor">
+                                <img src="images/news-img3.jpg" alt="Docotor">
                                 <div class="date_comment">
                                     <span>22<small>apr</small></span>
                                     <a href="#."><i class="icon-comment"></i> 5</a>
                                 </div>
                                 <div class="comment_text">
-                                    <h3><a href="#.">Thai Chicken Chilly</a></h3>
-                                    <p>Enjoy Delicious Food!</p>
+                                    <h3><a href="#.">Lorem dolor</a></h3>
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="news_content">
+                                <img src="images/news-img2.jpg" alt="Docotor">
+                                <div class="date_comment">
+                                    <span>22<small>apr</small></span>
+                                    <a href="#."><i class="icon-comment"></i> 5</a>
+                                </div>
+                                <div class="comment_text">
+                                    <h3><a href="#.">Lorem ipsum dolor</a></h3>
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="news_content">
+                                <img src="images/news-img1.jpg" alt="Docotor">
+                                <div class="date_comment">
+                                    <span>22<small>apr</small></span>
+                                    <a href="#."><i class="icon-comment"></i> 5</a>
+                                </div>
+                                <div class="comment_text">
+                                    <h3><a href="#.">Lipsum dolor</a></h3>
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore nulla facilisis.</p>
                                 </div>
                             </div>
                         </div>
@@ -682,25 +745,27 @@
 <!-- testinomial -->
 <section id="testinomial" class="padding">
     <div class="container">
+
         <div class="row">
             <div class="col-md-12 text-center">
                 <h2 class="heading">Our &nbsp; happy &nbsp; Customers</h2>
                 <hr class="heading_space">
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div id="testinomial-slider" class="owl-carousel text-center">
                     <div class="item">
-                        <h3>Awesome Food. Food from some of the finest restaurants in India!</h3>
+                        <h3>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram.</h3>
                         <p>Chris Martin</p>
                     </div>
                     <div class="item">
-                        <h3>Good Recipes, Nice staff and customer care. A good service overall</h3>
+                        <h3>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. quam nunc putamus parum claram, Mirum est notare quam littera gothica.</h3>
                         <p>Alex Hales</p>
                     </div>
                     <div class="item">
-                        <h3>Awesome Food. Food from some of the finest restaurants in India!</h3>
+                        <h3>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse.</h3>
                         <p>Shane Robertson</p>
                     </div>
                 </div>
@@ -715,22 +780,24 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-6 footer_column">
-                <h4 class="heading">Who are we?</h4>
+                <h4 class="heading">Why Bistro?</h4>
                 <hr class="half_space">
-                <p class="half_space"></p>
-                <p>Launched in Mumbai, JKS has grown from a home project to one of the largest food aggregators in the world. We are present in 24 countries and 10000+ cities globally, enabling our vision of better food for more people. We not only connect people to food in every context but work closely with restaurants to enable a sustainable ecosystem.</p>
+                <p class="half_space">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore dolor in hendrerit in vulputate.</p>
+                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl.</p>
             </div>
             <div class="col-md-3 col-sm-6 footer_column">
                 <h4 class="heading">Quick Links</h4>
                 <hr class="half_space">
                 <ul class="widget_links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="food.html">Our Food</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="about.html">About Us</a></li>
-
+                    <li><a href="location.html">Locations</a></li>
+                    <li><a href="menu.html">Menu</a></li>
                     <li><a href="faq.html">Faq's</a></li>
-                    <li><a href="./account/register.php">Order Now</a></li>
-
+                    <li><a href="order.html">Order Now</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="food.html">Food</a></li>
                 </ul>
             </div>
             <div class="col-md-3 col-sm-6 footer_column">
@@ -751,16 +818,16 @@
             <div class="col-md-3 col-sm-6 footer_column">
                 <h4 class="heading">Get in Touch</h4>
                 <hr class="half_space">
-                <p></p>
-                <p class="address"><i class="icon-location"></i>JKS, Opposite S.L.Raheja Hospital, Mahim Causeway, Mahim (West), Mumbai, Maharashtra 400016.</p>
-                <p class="address"><i class="fa fa-phone"></i>(+91) 892 808 5056</p>
-                <p class="address"><i class="icon-dollar"></i><a href="office@jks.com">office@jks.com</a></p>
+                <p>Restaurant, to consequat ipsum nec sagittis sem.</p>
+                <p class="address"><i class="icon-location"></i>Restaurant, Manhattan 1258,New York, USA Lahore</p>
+                <p class="address"><i class="fa fa-phone"></i>(+1) 234 567 8901</p>
+                <p class="address"><i class="icon-dollar"></i><a href="mailto:hello@website.com">hello@website.com</a></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="copyright clearfix">
-                    <p>Copyright &copy; 2020 JKS. All Right Reserved</p>
+                    <p>Copyright &copy; 2016 Bistro. All Right Reserved</p>
                     <ul class="social_icon">
                         <li><a href="#" class="facebook"><i class="icon-facebook5"></i></a></li>
                         <li><a href="#" class="twitter"><i class="icon-twitter4"></i></a></li>

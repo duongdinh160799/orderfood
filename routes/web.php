@@ -25,3 +25,27 @@ Route::get('user/', function () {
 Route::get('/', function () {
     return view('intro.index');
 });
+Route::get('/food', function () {
+    return view('intro.food');
+});
+Route::get('/about', function () {
+    return view('intro.about');
+});
+Route::get('/blog', function () {
+    return view('intro.blog');
+});
+Route::get('/blog-detail', function () {
+    return view('intro.blog_detail');
+});
+Route::get('/location', function () {
+    return view('intro.location');
+});
+Route::get('/menu', function () {
+    return view('intro.menu');
+});
+Route::get('/faq', function () {
+    return view('intro.faq');
+});
+Route::get('/gallery', function () {
+    return view('intro.gallery');
+});
