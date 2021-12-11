@@ -24,7 +24,7 @@ Route::get('user/', function () {
 });
 Route::get('/', function () {
     return view('intro.index');
-});
+})->name('intro_home');
 Route::get('/food', function () {
     return view('intro.food');
 });
@@ -49,3 +49,8 @@ Route::get('/faq', function () {
 Route::get('/gallery', function () {
     return view('intro.gallery');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');

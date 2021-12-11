@@ -81,7 +81,7 @@
                                     <a href="{{ asset('gallery') }}" >gallery</a>
                                 </li>
                                 <li><a href="{{ asset('blog') }}">blog</a></li>
-                                <li><a href="">Order Now</a></li>
+                                <li><a href="{{ route('login') }}">Order Now</a></li>
                                 <li class="dropdown">
                                     <a href="{{ asset('location') }}" >Location</a>
                                 </li>

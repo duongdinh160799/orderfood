@@ -86,7 +86,7 @@
                                 <ul class="nav navbar-nav  navbar-right">
                                     <li><a href="{{ asset('menu') }}">Menu</a></li>
                                     <li><a href="{{ asset('blog') }}">blog</a></li>
-                                    <li><a href="">Order Now</a></li>
+                                    <li><a href="{{ asset('login') }}">Order Now</a></li>
                                     <li class="dropdown">
                                         <a  href="{{ asset('location') }}" >Location</a>
                                     </li>
