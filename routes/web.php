@@ -50,7 +50,9 @@ Route::get('/gallery', function () {
     return view('intro.gallery');
 });
 
-Auth::routes();
-
+Auth::routes(['verify' => true]);
+Route::get('/home', function () {
+    return view('welcome');
+})->middleware('verified');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
