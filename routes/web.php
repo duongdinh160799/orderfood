@@ -53,6 +53,7 @@ Route::get('/gallery', function () {
 Auth::routes(['verify' => true]);
 Route::middleware('verified')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/user', 'UserController@index')->name('user.index');
 });
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
 

@@ -24,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->level == '1'){
+            return view('home');
+        }
+        else {
+            return redirect()->route('user.index');
+        }
     }
     public function logout()
     {
