@@ -83,7 +83,7 @@
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 
 <!-- START HEADER -->
-<header id="header" class="page-topbar">
+<header id="header" >
     <!-- start header nav-->
     <div class="navbar-fixed">
         <nav class="navbar-color">
@@ -105,7 +105,7 @@
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 
 <!-- START MAIN -->
-<div id="main">
+<div id="main" class="background-image">
     <!-- START WRAPPER -->
     <div class="wrapper">
 
@@ -119,7 +119,7 @@
                         </div>
                         <div class="col col s8 m8 l8">
                             <ul id="profile-dropdown" class="dropdown-content">
-                                <li><a href="routers/logout.php"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                <li><a href="{{ route('logout') }}"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
                                 </li>
                             </ul>
                         </div>

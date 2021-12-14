@@ -10922,4 +10922,10 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+.background-image{
+    background-image: url("../images/back-ground-image.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
 
