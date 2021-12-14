@@ -107,134 +107,126 @@
 <!-- START MAIN -->
 <div id="main">
     <!-- START WRAPPER -->
-{{--    <div class="wrapper">--}}
+    <div class="wrapper">
 
-{{--        <!-- START LEFT SIDEBAR NAV-->--}}
-{{--        <aside id="left-sidebar-nav">--}}
-{{--            <ul id="slide-out" class="side-nav fixed leftside-navigation">--}}
-{{--                <li class="user-details cyan darken-2">--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col col s4 m4 l4">--}}
-{{--                            <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image">--}}
-{{--                        </div>--}}
-{{--                        <div class="col col s8 m8 l8">--}}
-{{--                            <ul id="profile-dropdown" class="dropdown-content">--}}
-{{--                                <li><a href="routers/logout.php"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                        <div class="col col s8 m8 l8">--}}
-{{--                            <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $name;?> <i class="mdi-navigation-arrow-drop-down right"></i></a>--}}
-{{--                            <p class="user-roal"><?php echo $role;?></p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </li>--}}
-{{--                <li class="bold active"><a href="index.php" class="waves-effect waves-cyan"><i class="mdi-editor-border-color"></i> Order Food</a>--}}
-{{--                </li>--}}
-{{--                <li class="no-padding">--}}
-{{--                    <ul class="collapsible collapsible-accordion">--}}
-{{--                        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Orders</a>--}}
-{{--                            <div class="collapsible-body">--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="orders.php">All Orders</a>--}}
-{{--                                    </li>--}}
-{{--                                    <?php--}}
-{{--                                    $sql = mysqli_query("", "SELECT DISTINCT status FROM orders WHERE customer_id = $user_id;");--}}
-{{--                                    while($row = mysqli_fetch_array($sql)){--}}
-{{--                                        echo '<li><a href="orders.php?status='.$row['status'].'">'.$row['status'].'</a>--}}
-{{--                                    </li>';--}}
-{{--                                    }--}}
-{{--                                    ?>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--                <li class="no-padding">--}}
-{{--                    <ul class="collapsible collapsible-accordion">--}}
-{{--                        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-question-answer"></i> Tickets</a>--}}
-{{--                            <div class="collapsible-body">--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="tickets.php">All Tickets</a>--}}
-{{--                                    </li>--}}
-{{--                                    <?php--}}
-{{--                                    $sql = mysqli_query("", "SELECT DISTINCT status FROM tickets WHERE poster_id = $user_id AND not deleted;");--}}
-{{--                                    while($row = mysqli_fetch_array($sql)){--}}
-{{--                                        echo '<li><a href="tickets.php?status='.$row['status'].'">'.$row['status'].'</a>--}}
-{{--                                    </li>';--}}
-{{--                                    }--}}
-{{--                                    ?>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--                <li class="bold"><a href="details.php" class="waves-effect waves-cyan"><i class="mdi-social-person"></i> Edit Details</a>--}}
-{{--                </li>--}}
-{{--            </ul>--}}
-{{--            <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>--}}
-{{--        </aside>--}}
-{{--        <!-- END LEFT SIDEBAR NAV-->--}}
+        <!-- START LEFT SIDEBAR NAV-->
+        <aside id="left-sidebar-nav">
+            <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                <li class="user-details cyan darken-2">
+                    <div class="row">
+                        <div class="col col s4 m4 l4">
+                            <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                        </div>
+                        <div class="col col s8 m8 l8">
+                            <ul id="profile-dropdown" class="dropdown-content">
+                                <li><a href="routers/logout.php"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col col s8 m8 l8">
+                            <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo 'name';?> <i class="mdi-navigation-arrow-drop-down right"></i></a>
+                            <p class="user-roal"><?php echo '$role';?></p>
+                        </div>
+                    </div>
+                </li>
+                <li class="bold active"><a href="index.php" class="waves-effect waves-cyan"><i class="mdi-editor-border-color"></i> Order Food</a>
+                </li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Orders</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="orders.php">All Orders</a>
+                                    </li>
+<!--                                    --><?php
+//                                    $sql = mysqli_query("", "SELECT DISTINCT status FROM orders WHERE customer_id = $user_id;");
+//                                    while($row = mysqli_fetch_array($sql)){
+//                                        echo '<li><a href="orders.php?status='.$row['status'].'">'.$row['status'].'</a>
+//                                    </li>';
+//                                    }
+//                                    ?>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-question-answer"></i> Tickets</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="tickets.php">All Tickets</a>
+                                    </li>
+<!--                                    --><?php
+//                                    $sql = mysqli_query("", "SELECT DISTINCT status FROM tickets WHERE poster_id = $user_id AND not deleted;");
+//                                    while($row = mysqli_fetch_array($sql)){
+//                                        echo '<li><a href="tickets.php?status='.$row['status'].'">'.$row['status'].'</a>
+//                                    </li>';
+//                                    }
+//                                    ?>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="bold"><a href="details.php" class="waves-effect waves-cyan"><i class="mdi-social-person"></i> Edit Details</a>
+                </li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
+        </aside>
+        <!-- END LEFT SIDEBAR NAV-->
 
-{{--        <!-- //////////////////////////////////////////////////////////////////////////// -->--}}
+        <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-{{--        <!-- START CONTENT -->--}}
-{{--        <section id="content">--}}
+        <!-- START CONTENT -->
+        <section id="content">
 
-{{--            <!--breadcrumbs start-->--}}
+            <!--breadcrumbs start-->
 
-{{--            <!--breadcrumbs end-->--}}
+            <!--breadcrumbs end-->
 
 
-{{--            <!--start container-->--}}
-{{--            <div class="container">--}}
+            <!--start container-->
+            <div class="container">
 
-{{--                <form class="formValidate" id="formValidate" method="post" action="place-order.php" novalidate="novalidate">--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col s12 m4 l3">--}}
-{{--                            <h4 class="header">Order Food</h4>--}}
-{{--                        </div>--}}
-{{--                        <div>--}}
-{{--                            <table id="data-table-customer" class="responsive-table display" cellspacing="0">--}}
-{{--                                <thead>--}}
-{{--                                <tr>--}}
-{{--                                    <th>Name</th>--}}
-{{--                                    <th>Image</th>--}}
-{{--                                    <th>Item Price/Piece</th>--}}
-{{--                                    <th>Quantity</th>--}}
-{{--                                </tr>--}}
-{{--                                </thead>--}}
+                <form class="formValidate" id="formValidate" method="post" action="place-order.php" novalidate="novalidate">
+                    <div class="row">
+                        <div class="col s12 m4 l3">
+                            <h4 class="header">Order Food</h4>
+                        </div>
+                        <div>
+                            <table id="data-table-customer" class="responsive-table display" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Image</th>
+                                    <th>Item Price/Piece</th>
+                                    <th>Quantity</th>
+                                </tr>
+                                </thead>
 
-{{--                                <tbody>--}}
-{{--                                <?php--}}
-{{--                                $result = mysqli_query("", "SELECT * FROM items where not deleted;");--}}
-{{--                                while($row = mysqli_fetch_array($result))--}}
-{{--                                {--}}
-{{--                                    echo '<tr><td>'.$row["name"].'</td><td><img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" id="'.$row["id"].'_image" name="'.$row['id'].'_image" type="file" data-error=".errorTxt'.$row["id"].'"></td><td>'.$row["price"].'</td>';--}}
-{{--                                    echo '<td><div class="input-field col s12"><label for='.$row["id"].' class="">Quantity</label>';--}}
-{{--                                    echo '<input id="'.$row["id"].'" name="'.$row['id'].'" type="text" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div></td></tr>';--}}
-{{--                                }--}}
-{{--                                ?>--}}
-{{--                                </tbody>--}}
-{{--                            </table>--}}
-{{--                        </div>--}}
-{{--                        <div class="input-field col s12">--}}
-{{--                            <i class="mdi-editor-mode-edit prefix"></i>--}}
-{{--                            <textarea id="description" name="description" class="materialize-textarea"></textarea>--}}
-{{--                            <label for="description" class="">Any note(optional)</label>--}}
-{{--                        </div>--}}
-{{--                        <div>--}}
-{{--                            <div class="input-field col s12">--}}
-{{--                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Order--}}
-{{--                                    <i class="mdi-content-send right"></i>--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                </form>--}}
-{{--                <div class="divider"></div>--}}
+                                <tbody>
 
-{{--            </div>--}}
-{{--    </div>--}}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="mdi-editor-mode-edit prefix"></i>
+                            <textarea id="description" name="description" class="materialize-textarea"></textarea>
+                            <label for="description" class="">Any note(optional)</label>
+                        </div>
+                        <div>
+                            <div class="input-field col s12">
+                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Order
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                            </div>
+                        </div>
+                </form>
+                <div class="divider"></div>
+
+            </div>
+
     <!--end container-->
 
     </section>
@@ -252,8 +244,6 @@
 <footer class="page-footer">
     <div class="footer-copyright">
         <div class="container">
-            <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="#" target="_blank">Students</a> All rights reserved.</span>
-            <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="#">Students</a></span>
         </div>
     </div>
 </footer>
@@ -266,23 +256,23 @@ Scripts
 ================================================ -->
 
 <!-- jQuery Library -->
-<script type="text/javascript" src="js/plugins/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="account/js/plugins/jquery-1.11.2.min.js"></script>
 <!--angularjs-->
-<script type="text/javascript" src="js/plugins/angular.min.js"></script>
+<script type="text/javascript" src="account/js/plugins/angular.min.js"></script>
 <!--materialize js-->
-<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="account/js/materialize.min.js"></script>
 <!--scrollbar-->
-<script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="account/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <!-- data-tables -->
-<script type="text/javascript" src="js/plugins/data-tables/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="js/plugins/data-tables/data-tables-script.js"></script>
+<script type="text/javascript" src="account/js/plugins/data-tables/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="account/js/plugins/data-tables/data-tables-script.js"></script>
 
-<script type="text/javascript" src="js/plugins/jquery-validation/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js/plugins/jquery-validation/additional-methods.min.js"></script>
+<script type="text/javascript" src="account/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="account/js/plugins/jquery-validation/additional-methods.min.js"></script>
 
 <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-<script type="text/javascript" src="js/plugins.min.js"></script>
+<script type="text/javascript" src="account/js/plugins.min.js"></script>
 <!--custom-script.js - Add your own theme custom JS-->
-<script type="text/javascript" src="js/custom-script.js"></script>
+<script type="text/javascript" src="account/js/custom-script.js"></script>
 </body>
 </html>
