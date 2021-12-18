@@ -54,6 +54,16 @@ Auth::routes(['verify' => true]);
 Route::middleware('verified')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/user', 'UserController@index')->name('user.index');
+    Route::post('/user/order', 'UserController@order')->name('user.order');
+    Route::get('/user/ListOrder', 'UserController@listOrder')->name('user.listOrder');
+//    Route::get('/user/detailOrder', 'UserController@detailOrder')->name('user.detailOrder');
+    Route::get('/user/detailOrder/{id}', 'UserController@detailOrder')->name('user.detailOrder');
+    Route::get('/user/success', function (){
+        return view('user.success');
+    })->name('user.success');
+    //home
+
 });
+
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
 
