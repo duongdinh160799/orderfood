@@ -24,7 +24,7 @@
                                             </div>
                                             <div class="text-container">
                                                 <h6>{{ $item->name }}</h6>
-                                                <p class="price">{{ $item->price }}</p>
+                                                <p class="price">{{ $item->price }}$</p>
                                             </div>
 
                                         </div>
