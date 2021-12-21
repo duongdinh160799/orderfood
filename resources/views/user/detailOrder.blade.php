@@ -5,7 +5,7 @@
             <div class="col-12" >
                 <div class="card border-0 m-auto">
                     <div class="card-header">
-                        Order #123123123
+                        Order #<strong>{{ $order->code }}</strong>
                     </div>
                     <div class="card-body p-4 row">
                         <label class="col-2">Date</label><span class="col-10">{{ $order->created_at }}</span>
@@ -21,7 +21,7 @@
                                 @break
                             @endswitch</span>
                         <label class="col-2">Address</label><span class="col-10">{{ $order->address }}</span>
-                        <label class="col-2">Phone number</label><span class="col-10">123123123123</span>
+                        <label class="col-2">Phone number</label><span class="col-10">{{ $order->phone }}</span>
                     </div>
                     <div class="abcd">
                         <table class="table table-image">
@@ -34,6 +34,7 @@
                                 <th scope="col">Total</th>
                             </tr>
                             </thead>
+                            <tbody>
                             @foreach($order->order_details as $item)
                             <tr>
                                 <td class="image-thumb">

@@ -13,7 +13,7 @@ class CreateCoinHistorysTable extends Migration
      */
     public function up()
     {
-        Schema::create('coin_historys', function (Blueprint $table) {
+        Schema::create('coin_histories', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->double('coin');

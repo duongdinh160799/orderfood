@@ -11,11 +11,17 @@ $(document).ready(function() {
         e.preventDefault();
         $wrapper.classList.toggle('toggled');
     });
-
+    $("#datepicker").datepicker({
+        autoclose: true,
+        todayHighlight: false
+    });
+    $('.sub-menu ul').hide();
+    $(".sub-menu a").click(function () {
+        $(this).parent(".sub-menu").children("ul").slideToggle("100");
+        $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+    });
 });
 function addtocart(e,id,price){
-
-
     if($("#item-" + id).length == 0) {
         let html = ' <div class="d-flex mt-4" id="item-'+id+'">';
         html += '<img class="img-thumbnail ml-3 " src="' + e.querySelector('img').src + '" width="50px" height="50px">';

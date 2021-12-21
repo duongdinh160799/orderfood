@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->level == '1'){
-            return view('home');
+            return redirect()->route('admin.index');;
         }
         else {
             return redirect()->route('user.index');

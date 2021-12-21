@@ -29,8 +29,8 @@
             <h2>Logo</h2>
         </div>
         <ul class="sidebar-nav">
-            <li class="{{ $page_title == 'food_menu' ? 'active' : '' }}">
-                <a href="{{ route('user.index') }}"><i class="fa fa-bars"></i>Food Menu</a>
+            <li class="{{ $page_title == 'user_account' ? 'active' : '' }}">
+                <a href="{{ route('admin.index') }}"><i class="fa fa-bars"></i>User Account</a>
             </li>
             <li class="{{ $page_title == 'order' ? 'active' : '' }}">
                 <a href="{{ route('user.listOrder') }}"><i class="fa fa-calendar-alt"></i>Order</a>

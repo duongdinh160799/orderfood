@@ -3,6 +3,7 @@
     <!-- Topic Cards -->
     @if(session()->has('error'))
         <div class="alert alert-danger">
+            <a class="close" data-dismiss="alert" href="#">×</a>
             {{ session()->get('error') }}
         </div>
     @endif
@@ -68,15 +69,15 @@
                                         <div class="modal-body text-left">
                                             <div class="form-group">
                                                 <label for="address">Shipping Address</label>
-                                                <input type="text" class="form-control" name="address" required id="address" placeholder="Enter shipping address">
+                                                <input type="text" class="form-control" name="address" required id="address" placeholder="Enter shipping address" value="{{ $user->address }}">
 
                                             </div>
                                             <div class="form-group">
                                                 <label for="phone">Phone Number</label>
-                                                <input type="number" class="form-control" required name="phone" id="phone" placeholder="Phone">
+                                                <input type="number" class="form-control" required name="phone" id="phone" value="{{ $user->phone }}" placeholder="Phone">
                                             </div>
                                             <div class="form-group">
-                                                <label for="payment">Your Wallet : <span class="text-danger strong mr-3"> 300$ </span> </label>
+                                                <label for="payment">Your Wallet : <span class="text-danger strong mr-3">{{ $total_coin }}$ </span> </label>
                                             </div>
                                             <div class="form-group">
                                                 <label for="payment">Payments</label>

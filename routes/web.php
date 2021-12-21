@@ -53,16 +53,24 @@ Route::get('/gallery', function () {
 Auth::routes(['verify' => true]);
 Route::middleware('verified')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    ////////////////user
     Route::get('/user', 'UserController@index')->name('user.index');
     Route::post('/user/order', 'UserController@order')->name('user.order');
     Route::get('/user/ListOrder', 'UserController@listOrder')->name('user.listOrder');
-//    Route::get('/user/detailOrder', 'UserController@detailOrder')->name('user.detailOrder');
     Route::get('/user/detailOrder/{id}', 'UserController@detailOrder')->name('user.detailOrder');
-    Route::get('/user/success', function (){
-        return view('user.success');
-    })->name('user.success');
+    Route::get('/user/profile', 'UserController@profile')->name('user.profile');
+    Route::post('/user/editProfile', 'UserController@editProfile')->name('user.editProfile');
+    Route::post('user/credentials', 'UserController@changePassword')->name('user.changePassword');
+    Route::get('/user/success', 'UserController@success')->name('user.success');
+    Route::get('/user/wallet', 'UserController@wallet')->name('user.wallet');
+    Route::post('/user/recharge', 'UserController@recharge')->name('user.recharge');
+    Route::post('/user/withdrawal', 'UserController@withdrawal')->name('user.withdrawal');
+    Route::get('not_auth', 'UserController@not_auth')->name('not_auth');
     //home
 
+    //////////////////Admin
+    Route::get('/admin', 'AdminController@index')->name('admin.index');
+    Route::get('/admin/editAccount', 'AdminController@editAccount')->name('admin.edit_account');
 });
 
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');

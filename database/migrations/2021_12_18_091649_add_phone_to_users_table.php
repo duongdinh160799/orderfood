@@ -15,6 +15,11 @@ class AddPhoneToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->string('phone')->after('status')->default('');
+            $table->string('address')->after('phone')->default('');
+            $table->string('id_number')->after('address')->default('');
+            $table->integer('gender')->after('id_number')->default(0);
+            $table->date('birthday')->after('gender')->nullable();
         });
     }
 
@@ -27,7 +32,7 @@ class AddPhoneToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->integer('phone')->after('status');
+
         });
     }
 }
