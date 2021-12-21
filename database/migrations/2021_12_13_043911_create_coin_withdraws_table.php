@@ -18,8 +18,8 @@ class CreateCoinWithdrawsTable extends Migration
             $table->integer('user_id');
             $table->integer('coin');
             $table->string('account_name');
-            $table->integer('account_number');
-            $table->integer('bank_name');
+            $table->string('account_number');
+            $table->string('bank_name');
             $table->integer('status');
             $table->timestamps();
         });
