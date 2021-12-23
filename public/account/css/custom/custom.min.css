@@ -367,3 +367,13 @@ a:focus {
 #exTab1 .nav-pills > li > a {
     border-radius: 0;
 }
+#canv1 {
+    height: 175px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+.image-upload{
+    max-width: 200px;
+    height: auto;
+}

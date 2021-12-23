@@ -13,22 +13,25 @@
         </div>
     @endif
     <div class="container">
-        <form id="form-change-profile" role="form" method="POST" action="{{ route('user.editProfile') }}" >
+        <form id="form-change-profile" role="form" method="POST" action="{{ route('admin.postEditAccount') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="id" value="{{ $user->id }}">
             <h2>Profile</h2>
             <hr class="colorgraph">
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Name" value="{{ $user->name }}"
+                        <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Name"
+                               value="{{ $user->name }}"
                                required tabindex="1">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-4">
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="number" name="phone" id="number" class="form-control input-lg" value="{{ $user->phone }}"
+                        <input type="number" name="phone" id="number" class="form-control input-lg"
+                               value="{{ $user->phone }}"
                                placeholder="Phone Number" required tabindex="2">
                     </div>
                 </div>
@@ -37,15 +40,17 @@
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control input-lg " disabled value="{{ $user->email }}"
-                               placeholder="Email Address"  tabindex="3">
+                        <input type="email" name="email" id="email" class="form-control input-lg " disabled
+                               value="{{ $user->email }}"
+                               placeholder="Email Address" tabindex="3">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-4">
                     <label for="birthday">Birthday</label>
                     <div class="form-group">
                         <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
-                            <input class="form-control input-lg" type="text" name="birthday" required value="{{ $user->birthday? date_create_from_format("Y-m-d", $user->birthday)->format("d-m-Y") : ''}}"/>
+                            <input class="form-control input-lg" type="text" name="birthday" required
+                                   value="{{ $user->birthday? date_create_from_format("Y-m-d", $user->birthday)->format("d-m-Y") : ''}}"/>
                             <span class="input-group-addon"></span>
                         </div>
                     </div>
@@ -55,7 +60,8 @@
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="form-group">
                         <label for="email">ID Number</label>
-                        <input type="number" name="id_number" id="id_number" class="form-control input-lg" required placeholder="Your ID number" value="{{ $user->id_number }}"
+                        <input type="number" name="id_number" id="id_number" class="form-control input-lg" required
+                               placeholder="Your ID number" value="{{ $user->id_number }}"
                                tabindex="5">
                     </div>
                 </div>
@@ -69,8 +75,35 @@
             <div class="row">
                 <div class="form-group col-8">
                     <label for="address">Address</label>
-                    <input type="Text" name="address" id="address" class="form-control input-lg" placeholder="Address" value="{{ $user->address }}"
+                    <input type="text" name="address" id="address" class="form-control input-lg" placeholder="Address"
+                           value="{{ $user->address }}"
                            tabindex="6">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label class="mr-5" for="active">Active: </label>
+                    <input class="ml-5" type="checkbox" name="active" id="active"
+                           {{ $user->status == 0 ? 'checked' : '' }}  data-toggle="toggle" data-on="Active"
+                           data-off="Disable" data-onstyle="success" data-offstyle="danger">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-4">
+                    <div class="form-group">
+                        <label for="verify">Verify Email Time: </label>
+                        <input type="text" name="verify" id="verify" class="form-control input-lg" disabled
+                               placeholder="Address"
+                               value="{{ $user->email_verified_at ? $user->email_verified_at : 'Not verify email' }}"
+                               tabindex="6">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-4">
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        {{ Form::select('role', [0=>'Customer',1=>'Admin'],$user->level, ['class' => 'form-control ']) }}
+                    </div>
                 </div>
             </div>
 
@@ -86,4 +119,5 @@
         </form>
         {{--        //change password--}}
     </div>
+
 @endsection

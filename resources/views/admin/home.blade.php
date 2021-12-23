@@ -10,6 +10,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Mail</th>
+                    <th>Coin</th>
                     <th>Verified</th>
                     <th>Permission</th>
                     <th>Status</th>
@@ -24,6 +25,7 @@
                         <td>{{ $key+1 }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
+                        <td class="text-danger">{{ $user->total_coin }}$</td>
                         <td> @if($user->email_verified_at) <span class="text-success">Verify</span>
                             @else <span class="text-danger">Not Verify</span>@endif
                         </td>
@@ -31,7 +33,7 @@
                             @else <span>Customer</span>@endif
                         </td>
                         <td>@if($user->status == 0) <span class="text-success">Active</span>
-                            @else <span class="text-danger">Not Active</span>@endif
+                            @else <span class="text-danger">Disabled</span>@endif
                         <td> <a class="btn btn-outline-danger" href="{{ route('admin.edit_account',['id' => $user->id]) }}"><i class="fas fa-edit"></i></a></td>
                     </tr>
                 @endforeach

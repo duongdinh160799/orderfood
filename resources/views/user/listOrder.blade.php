@@ -35,7 +35,22 @@
                                 @endswitch</span></td>
                         <td>{{ $order->address }}</td>
                         <td>{{ $order->total }}</td>
-                        <td>Done</td>
+                        <td>
+                            @switch($order->status)
+                                @case(0)
+                                <span class="text-warning">Wait for admin confirm </span>
+                                @break
+                                @case(1)
+                                <span class="text-info"> Doing and shipping </span>
+                                @break
+                                @case(2)
+                                <span class="text-success">Done </span>
+                                @break
+                                @case(3)
+                                <span class="text-danger">Cancel </span>
+                                @break
+                            @endswitch
+                        </td>
                         <td> <a class="btn btn-outline-danger" href="{{ route('user.detailOrder',['id' => $order->id]) }}"><i class="fas fa-eye"></i></a></td>
                     </tr>
                     @endforeach

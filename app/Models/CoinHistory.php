@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CoinHistory extends Model
 {
     use HasFactory;
+    public function users(){
+        return $this->belongsTo('App\Models\User','user_id','id');
+    }
 }

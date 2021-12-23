@@ -26,7 +26,7 @@
 
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <h2>Logo</h2>
+            <h2>{{ \Illuminate\Support\Facades\Auth::user()->name }}</h2>
         </div>
         <ul class="sidebar-nav">
             <li class="{{ $page_title == 'food_menu' ? 'active' : '' }}">
@@ -36,7 +36,7 @@
                 <a href="{{ route('user.listOrder') }}"><i class="fa fa-calendar-alt"></i>Order</a>
             </li>
             <li class="{{ $page_title == 'wallet' ? 'active' : '' }}">
-                <a href="{{ route('user.wallet') }}"><i class="fa fa-wallet"></i></i>Wallet</a>
+                <a href="{{ route('user.wallet') }}"><i class="fa fa-wallet"></i>Wallet</a>
             </li>
             <li class="sub-menu {{ $page_title == 'profile' ? 'active' : '' }}">
                 <a href="#"><i class="fa fa-user"></i>Users<div class='fa fa-caret-down right'></div></a>

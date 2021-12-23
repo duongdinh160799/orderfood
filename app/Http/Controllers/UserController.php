@@ -225,6 +225,7 @@ class UserController extends Controller
     {
         $page_title = 'wallet';
         $data = $request->input();
+        $total_coin = CoinHistory::query()->where('user_id', Auth::id())->sum('coin');
         $withdraw_coin = new CoinWithdraw();
         $withdraw_coin->user_id = Auth::id();
         $withdraw_coin->coin = $data['money_withdrawal'];
@@ -233,17 +234,20 @@ class UserController extends Controller
         $withdraw_coin->bank_name = $data['bank_name'];
         $withdraw_coin->status = 1;
         $withdraw_coin->save();
-
-        $history_coin = new CoinHistory();
-        $history_coin->user_id = Auth::id();
-        $history_coin->coin = $withdraw_coin->coin * -1;
-        $history_coin->object_id = $withdraw_coin->id;
-        $history_coin->object_type = 2;
-        $history_coin->save();
-
-        return view('user.withdrawal', [
-            'page_title' => $page_title,
-        ]);
+        if ($withdraw_coin->coin < $total_coin) {
+            $history_coin = new CoinHistory();
+            $history_coin->user_id = Auth::id();
+            $history_coin->coin = $withdraw_coin->coin * -1;
+            $history_coin->object_id = $withdraw_coin->id;
+            $history_coin->object_type = 2;
+            $history_coin->save();
+            return view('user.withdrawal', [
+                'page_title' => $page_title,
+            ]);
+        } else {
+            $withdraw_coin->delete();
+            return back()->with('error', "Your wallet isn't enough money to withdraw!");
+        }
     }
     public function not_auth(){
         $page_title = 'food_menu';

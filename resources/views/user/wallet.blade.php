@@ -1,5 +1,11 @@
 @extends('layouts.accout')
 @section('content')
+    @if(session()->has('error'))
+        <div class="alert alert-danger">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            {{ session()->get('error') }}
+        </div>
+    @endif
     <div class="container">
         <div class="text-box order-choose ">
             <div class="row text-left" id="order">
@@ -45,6 +51,7 @@
                                             <!--Table head-->
                                             <!--Table body-->
                                             <tbody>
+{{--                                            @dd($order_coins)--}}
                                             @foreach($order_coins as $key=>$order_coin)
                                                 <tr>
                                                     <td>{{ $key+1 }}</td>
@@ -62,7 +69,7 @@
                                                     @break
                                                     @case(2)
                                                     <span class="text-success">Done</span></td>
-                                                    @
+                                                    @break
                                                     @case(3)
                                                     <span class="text-danger">Cancel</span></td>
                                                     @break

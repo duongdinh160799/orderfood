@@ -24,12 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->level == '1'){
-            return redirect()->route('admin.index');;
+        if (Auth::user()->status == 1){
+            Auth::logout();
+            return redirect()->route('account_disable');
         }
-        else {
-            return redirect()->route('user.index');
+        else{
+            if(Auth::user()->level == '1'){
+                return redirect()->route('admin.index');
+            }
+            else {
+                return redirect()->route('user.index');
+            }
         }
+
     }
     public function logout()
     {

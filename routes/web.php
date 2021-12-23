@@ -16,12 +16,6 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('admin/', function () {
-    return view('welcome');
-});
-Route::get('user/', function () {
-    return view('welcome');
-});
 Route::get('/', function () {
     return view('intro.index');
 })->name('intro_home');
@@ -67,11 +61,30 @@ Route::middleware('verified')->group(function () {
     Route::post('/user/withdrawal', 'UserController@withdrawal')->name('user.withdrawal');
     Route::get('not_auth', 'UserController@not_auth')->name('not_auth');
     //home
-
     //////////////////Admin
+
     Route::get('/admin', 'AdminController@index')->name('admin.index');
     Route::get('/admin/editAccount', 'AdminController@editAccount')->name('admin.edit_account');
+    Route::post('/admin/editAccount', 'AdminController@postEditAccount')->name('admin.postEditAccount');
+    Route::get('/admin/ListOrder', 'AdminController@listOrder')->name('admin.listOrder');
+    Route::get('/admin/detailOrder/{id}', 'AdminController@detailOrder')->name('admin.detailOrder');
+    Route::post('/admin/changeStatusOrder', 'AdminController@changeStatusOrder')->name('admin.changeStatusOrder');
+    Route::get('/admin/Item', 'AdminController@listItem')->name('admin.listItem');
+    Route::get('/admin/detailItem/{id}', 'AdminController@detailItem')->name('admin.detailItem');
+    Route::post('/admin/newItem', 'AdminController@postNewItem')->name('admin.postNewItem');
+    Route::post('/admin/postDetailItem', 'AdminController@postDetailItem')->name('admin.postDetailItem');
+    Route::get('/admin/deleteItem', 'AdminController@deleteItem')->name('admin.deleteItem');
+    Route::get('/admin/listWithdrawal', 'AdminController@listWithdrawal')->name('admin.listWithdrawal');
+    Route::get('/admin/listRecharge', 'AdminController@listRecharge')->name('admin.listRecharge');
+    Route::post('/admin/changeStatusRecharge', 'AdminController@changeStatusRecharge')->name('admin.changeStatusRecharge');
+    Route::post('/admin/changeStatusWithdrawal', 'AdminController@changeStatusWithdrawal')->name('admin.changeStatusWithdrawal');
 });
 
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
+Route::get('/account_disable',function (){
+    return view('intro.account_disable');
+})->name('account_disable');
+Route::get('/account_disable',function (){
+    return view('intro.not_admin');
+})->name('not_admin');
 
