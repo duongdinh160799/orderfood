@@ -111,15 +111,15 @@ class AdminController extends Controller
     }
     public function postNewItem(Request $request){
         $data = $request->input();
-        if ($request->file('image')){
-            $path = $request->file('image')->store('public/avatars');
-        }
-        $path = str_replace('public','',$path);
         $item = new Item();
         $item->name = $data['name'];
         $item->price = $data['price'];
         $item->description = $data['description'];
-        $item->image =  asset('storage/'.$path);
+        if ($request->file('image')){
+            $path = $request->file('image')->store('public/avatars');
+            $path = str_replace('public','',$path);
+        }
+        $item->image = $path ?  asset('storage/'.$path):'' ;
         $item->save();
         return redirect()->route('admin.listItem')->with('success', 'Add item Success');
     }

@@ -1,17 +1,5 @@
 
 $(document).ready(function() {
-    $('.sub-menu ul').hide();
-    $(".sub-menu a").click(function () {
-        $(this).parent(".sub-menu").children("ul").slideToggle("100");
-        $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
-    });
-    $("#success-alert").hide();
-    imgInp.onchange = evt => {
-        const [file] = imgInp.files;
-        if (file) {
-            blah.src = URL.createObjectURL(file);
-        }
-    }
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -28,7 +16,20 @@ $(document).ready(function() {
         autoclose: true,
         todayHighlight: false
     });
-
+    $('.sub-menu ul').hide();
+    $(".sub-menu a").click(function () {
+        $(this).parent(".sub-menu").children("ul").slideToggle("100");
+        $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+    });
+    $("#success-alert").hide();
+    if ($('#imgInp').length){
+        imgInp.onchange = evt => {
+            const [file] = imgInp.files;
+            if (file) {
+                blah.src = URL.createObjectURL(file);
+            }
+        };
+    }
 });
 function addtocart(e,id,price){
     if($("#item-" + id).length == 0) {

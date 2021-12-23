@@ -824,18 +824,6 @@
                 <p class="address"><i class="icon-dollar"></i><a href="mailto:hello@website.com">hello@website.com</a></p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="copyright clearfix">
-                    <p>Copyright &copy; 2016 Bistro. All Right Reserved</p>
-                    <ul class="social_icon">
-                        <li><a href="#" class="facebook"><i class="icon-facebook5"></i></a></li>
-                        <li><a href="#" class="twitter"><i class="icon-twitter4"></i></a></li>
-                        <li><a href="#" class="google"><i class="icon-google"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
 </footer>
 
