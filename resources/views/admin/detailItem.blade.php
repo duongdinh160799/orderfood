@@ -16,7 +16,11 @@
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="number" class="form-control" name="price" required id="price" placeholder="Enter price name" value="{{ $item->price }}">
+                    <input type="text" class="form-control" name="price" required id="price" placeholder="Enter price name" value="{{ $item->price }}">
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    {{ Form::select('type', [0=>'All',1=>'Food',2=>'Drink',3=>'Unprocessed food'],$item->type, ['class' => 'form-control']) }}
                 </div>
                 <div class="form-group">
                     <label for="description">Note</label>

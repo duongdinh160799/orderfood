@@ -18,9 +18,18 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $listItems = Item::query()->get();
+        $data = $request->input();
+//        dd($data);
+        if  (isset($data['status'])&&$data['status'] !='0'){
+            $listItems = Item::query()->where('type',$data['status'])->orderBy('id', 'desc')->get();
+            $status = $data['status'];
+        }
+        else{
+            $listItems = Item::query()->orderBy('id', 'desc')->get();
+            $status = 0;
+        }
         $payments = [
             1 => 'Cash On Delivery',
             2 => 'Wallet'
@@ -34,6 +43,7 @@ class UserController extends Controller
             'page_title' => $page_title,
             'user' => $user,
             'total_coin' => $total_coin,
+            'search' => $status,
         ]);
     }
 
@@ -72,13 +82,14 @@ class UserController extends Controller
                     $coin_history->object_id = $order->id;
                     $coin_history->object_type = 0;
                     $coin_history->save();
-                    return redirect()->route('user.success');;
+                    return redirect()->route('user.success');
                 } else {
                     $order->order_details()->delete();
                     $order->delete();
                     return back()->with('error', "Your wallet isn't enough money!");
                 }
             }
+            return redirect()->route('user.success');
         } else {
             return back()->with('error', 'Choose one Item!');
         }

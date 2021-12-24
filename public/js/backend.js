@@ -5,6 +5,19 @@ $(document).ready(function() {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    if ($("#datepicker").length){
+        $("#datepicker").datepicker({
+            autoclose: true,
+            todayHighlight: false
+        });
+    }
+
+    $('.sub-menu ul').hide();
+    $(".sub-menu a").click(function () {
+        $(this).parent(".sub-menu").children("ul").slideToggle("100");
+        $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+    });
+    $("#success-alert").hide();
     const $button  = document.querySelector('#sidebar-toggle');
     const $wrapper = document.querySelector('#wrapper');
 
@@ -12,16 +25,6 @@ $(document).ready(function() {
         e.preventDefault();
         $wrapper.classList.toggle('toggled');
     });
-    $("#datepicker").datepicker({
-        autoclose: true,
-        todayHighlight: false
-    });
-    $('.sub-menu ul').hide();
-    $(".sub-menu a").click(function () {
-        $(this).parent(".sub-menu").children("ul").slideToggle("100");
-        $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
-    });
-    $("#success-alert").hide();
     if ($('#imgInp').length){
         imgInp.onchange = evt => {
             const [file] = imgInp.files;
@@ -90,7 +93,6 @@ function changeStatusOrder(e,id){
     });
 }
 function searchOrder(e){
-    console.log('123123');
     $.ajax({
         url :route('admin.listOrder'),
         type : "get",
@@ -101,6 +103,86 @@ function searchOrder(e){
         success : function (res){
             if (res){
                 $('body').html(res);
+            }
+        }
+    });
+}
+function searchItem(e){
+    $.ajax({
+        url :route('admin.listItem'),
+        type : "get",
+        data : {
+            _token:$(e).data('token'),
+            status: e.value
+        },
+        success : function (res){
+            if (res){
+                $('body').html(res);
+            }
+        }
+    });
+}
+function searchItemUser(e){
+    $.ajax({
+        url :route('user.index'),
+        type : "get",
+        data : {
+            _token:$(e).data('token'),
+            status: e.value
+        },
+        success : function (res){
+            if (res){
+                $('body').html(res);
+            }
+        }
+    });
+}
+function searchRecharge(e){
+    $.ajax({
+        url :route('admin.listRecharge'),
+        type : "get",
+        data : {
+            _token:$(e).data('token'),
+            status: e.value
+        },
+        success : function (res){
+            if (res){
+                $('body').html(res);
+                $("#success-alert").hide();
+            }
+        }
+    });
+}
+function searchWithdrawal(e){
+    $.ajax({
+        url :route('admin.listWithdrawal'),
+        type : "get",
+        data : {
+            _token:$(e).data('token'),
+            status: e.value
+        },
+        success : function (res){
+            if (res){
+                $('body').html(res);
+                $("#success-alert").hide();
+            }
+        }
+    });
+}
+function searchUser(e){
+    var search = $('#search').val();
+    console.log(search);
+    $.ajax({
+        url :route('admin.index'),
+        type : "get",
+        data : {
+            _token:$(e).data('token'),
+            search: search
+        },
+        success : function (res){
+            if (res){
+                $('body').html(res);
+                $("#success-alert").hide();
             }
         }
     });

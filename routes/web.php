@@ -84,7 +84,7 @@ Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->n
 Route::get('/account_disable',function (){
     return view('intro.account_disable');
 })->name('account_disable');
-Route::get('/account_disable',function (){
+Route::get('/not_admin',function (){
     return view('intro.not_admin');
 })->name('not_admin');
 

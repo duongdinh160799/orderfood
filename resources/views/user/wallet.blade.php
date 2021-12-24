@@ -76,7 +76,7 @@
                                                     @endswitch
                                                     <span class="text-success">
                                                             </span></td>
-                                                    <td>{{ $order_coin->coin }}</td>
+                                                    <td>{{ $order_coin->coin }}$</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -121,7 +121,7 @@
                                                             @break
                                                     @endswitch
 
-                                                    <td>{{ $recharge_coin->coin }}</td>
+                                                    <td>{{ $recharge_coin->coin }}$</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -170,7 +170,7 @@
                                                     @break
                                                     @endswitch
 
-                                                    <td>{{ $withdraw_coin->coin }}</td>
+                                                    <td>-{{ $withdraw_coin->coin }}$</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -199,7 +199,7 @@
                         </div>
                         <div class="modal-body text-left">
                             <div class="form-group">
-                                <label for="money_recharge">Money</label>
+                                <label for="money_recharge">Money:($)</label>
                                 <input type="number" class="form-control" name="money_recharge" min="0" required id="money_recharge" placeholder="Enter money recharge">
 
                             </div>
@@ -226,7 +226,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="money_withdrawal">Money</label>
+                                        <label for="money_withdrawal">Money:($)</label>
                                         <input type="number" class="form-control" min="0" name="money_withdrawal" required id="money_withdrawal" placeholder="Enter money withdrawal">
                                     </div>
                                 </div>

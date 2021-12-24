@@ -6,12 +6,18 @@
             {{ session()->get('success') }}
         </div>
     @endif
+    @if(session()->has('error'))
+        <div class="alert alert-danger">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            {{ session()->get('error') }}
+        </div>
+    @endif
     <div class="pl-4 mb-4 mt-5">
         <h2>List Item</h2>
-        {{--        <div class="card-body">--}}
-        {{--            <label for="name">Seach</label>--}}
-        {{--            {{ Form::select('search', [4=>'All',0=>'Wait for admin confirm',1=>'Doing and shipping',2=>'Done',3=>'Cancel'],isset($search) ? $search : 4, ['class' => 'form-control','data-token'=> csrf_token() ,'onchange'=>"searchOrder(this)"]) }}--}}
-        {{--        </div>--}}
+                <div class="card-body">
+                    <label for="name">Seach</label>
+                    {{ Form::select('search', [0=>'All',1=>'Food',2=>'Drink',3=>'Unprocessed food'],isset($search) ? $search : 0, ['class' => 'form-control','data-token'=> csrf_token() ,'onchange'=>"searchItem(this)"]) }}
+                </div>
         <a class="btn btn-outline-info" href="#" name="openModal" data-toggle="modal" data-target="#form-modal">New
             item</a>
         <form action="{{ route('admin.postNewItem') }}" method="post" enctype="multipart/form-data">
@@ -36,6 +42,11 @@
                                 <label for="price">Price</label>
                                 <input type="number" class="form-control" name="price" required id="price"
                                        placeholder="Enter price name">
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Type</label>
+                                {{ Form::select('type', [0=>'All',1=>'Food',2=>'Drink',3=>'Unprocessed food'],0, ['class' => 'form-control']) }}
+
                             </div>
                             <div class="form-group">
                                 <label for="description">Note</label>

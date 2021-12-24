@@ -1,5 +1,21 @@
 @extends('layouts.admin')
 @section('content')
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            {{ session()->get('success') }}
+        </div>
+    @endif
+    <div class="pl-4 mb-4 mt-5">
+        <h2>List User</h2>
+        <label for="search">Search Email</label>
+        <div class="form-group d-flex flex-wrap">
+            <input type="text" name="search" id="search" class="form-control input-lg col-4"
+                   value="{{ isset($search) ? $search : '' }}"
+                   placeholder="Seach email">
+            <button class="btn btn-primary ml-5" onclick="searchUser(this)">Search</button>
+        </div>
+    </div>
     <div class="card mb-4 mt-5">
         <div class="card-body">
             <!--Table-->

@@ -13,6 +13,9 @@
 
                 <div class="col-8">
                     <h3 class="text-left">Menu</h3>
+                    <div class="card-body">
+                        {{ Form::select('search', [0=>'All',1=>'Food',2=>'Drink',3=>'Unprocessed food'],isset($search) ? $search : 0, ['class' => 'form-control','data-token'=> csrf_token() ,'onchange'=>"searchItemUser(this)"]) }}
+                    </div>
                     <div class="row">
                         @foreach($listItems as $item)
                             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">

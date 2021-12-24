@@ -14,17 +14,27 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::query()->get();
-        foreach ($users as $user){
-            $user->total_coin =  CoinHistory::query()->where('user_id', $user->id)->sum('coin');
+        $data =$request->input();
+        if  (isset($data['search'])&&$data['search']){
+            $users = User::query()->where('email','like','%'.$data['search'].'%')->get();
+            $search = $data['search'];
         }
-//        dd($users);
+        else{
+            $users = User::query()->get();
+            $search = '';
+        }
+        if ($users){
+            foreach ($users as $user){
+                $user->total_coin =  CoinHistory::query()->where('user_id', $user->id)->sum('coin');
+            }
+        }
         $page_title = 'user_account';
         return view('admin.home', [
             'page_title' => $page_title,
             'users' => $users,
+            'search'=>$search,
         ]);
     }
     public function editAccount(Request $request){
@@ -54,7 +64,6 @@ class AdminController extends Controller
     public function listOrder(Request $request){
         $page_title = 'list_order';
         $data = $request->input();
-//        dd($data);
         if  (isset($data['status'])&&$data['status'] !='4'){
             $listOrders = Order::query()->where('status',$data['status'])->orderBy('id', 'desc')->get();
             $status = $data['status'];
@@ -94,11 +103,20 @@ class AdminController extends Controller
     }
     public function listItem(Request $request){
         $page_title = 'item';
-        $items = Item::query()->get();
+        $data = $request->input();
+        if  (isset($data['status'])&&$data['status'] !='0'){
+            $items = Item::query()->where('type',$data['status'])->orderBy('id', 'desc')->get();
+            $status = $data['status'];
+        }
+        else{
+            $items = Item::query()->orderBy('id', 'desc')->get();
+            $status = 0;
+        }
 
         return view('admin.listItem',[
             'page_title' => $page_title,
             'items' => $items,
+            'search' => $status
         ]);
     }
     public function detailItem($id){
@@ -120,43 +138,71 @@ class AdminController extends Controller
             $path = str_replace('public','',$path);
         }
         $item->image = $path ?  asset('storage/'.$path):'' ;
+        $item->type = $data['type'] ?  $data['type'] : 1;
         $item->save();
         return redirect()->route('admin.listItem')->with('success', 'Add item Success');
     }
     public function postDetailItem(Request $request){
         $data = $request->input();
-        if ($request->file('image')){
-            $path = $request->file('image')->store('public/avatars');
-        }
-        $path = str_replace('public','',$path);
         $item = Item::query()->find($data['id']);
         $item->name = $data['name'];
         $item->price = $data['price'];
         $item->description = $data['description'];
+        if ($request->file('image')){
+            $path = $request->file('image')->store('public/avatars');
+            $path = str_replace('public','',$path);
+        }
         $item->image = isset($path) && $path ? asset('storage/'.$path) : $item->image;
+        $item->type = $data['type'] ?  $data['type'] : 1;
         $item->save();
         return redirect()->route('admin.listItem')->with('success', 'Edit item Success');
     }
     public function deleteItem(Request $request){
         $data = $request->input();
         $item = Item::query()->find($data['id']);
-        $item->delete();
-        return redirect()->route('admin.listItem')->with('success', 'Delete item Success');
+//        dd($item);
+        if ($item->delete()){
+            return redirect()->route('admin.listItem')->with('success', 'Delete item Success');
+        }
+        else{
+            return redirect()->route('admin.listItem')->with('error', 'Delete item Error! Try again!');
+        }
+
+
     }
-    public function listWithdrawal(){
+    public function listWithdrawal(Request $request){
         $page_title = 'wallet';
-        $listWithDraws = CoinWithdraw::query()->get();
+        $data = $request->input();
+        if  (isset($data['status'])&&$data['status'] !='0'){
+            $listWithDraws = CoinWithdraw::query()->where('status',$data['status'])->orderBy('id', 'desc')->get();
+            $status = $data['status'];
+        }
+        else{
+            $listWithDraws = CoinWithdraw::query()->orderBy('id', 'desc')->get();
+            $status = 0;
+        }
+
         return view('admin.listWithdrawal',[
             'page_title' => $page_title,
             'listWithDraws' => $listWithDraws,
+            'search' => $status,
         ]);
     }
-    public function listRecharge(){
+    public function listRecharge(Request $request){
         $page_title = 'wallet';
-        $listRecharges = CoinRecharge::query()->get();
+        $data = $request->input();
+        if  (isset($data['status'])&&$data['status'] !='0'){
+            $listRecharges = CoinRecharge::query()->where('status',$data['status'])->orderBy('id', 'desc')->get();
+            $status = $data['status'];
+        }
+        else{
+            $listRecharges = CoinRecharge::query()->orderBy('id', 'desc')->get();
+            $status = 0;
+        }
         return view('admin.listRecharge',[
             'page_title' => $page_title,
             'listRecharges' => $listRecharges,
+            'search' => $status,
         ]);
     }
     public function changeStatusRecharge(Request $request){

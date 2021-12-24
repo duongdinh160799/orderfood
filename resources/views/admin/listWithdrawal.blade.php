@@ -11,10 +11,10 @@
     </div>
     <div class="pl-4 mb-4 mt-5">
         <h2>List Withdrawal</h2>
-        {{--        <div class="card-body">--}}
-        {{--            <label for="name">Seach</label>--}}
-        {{--            {{ Form::select('search', [4=>'All',0=>'Wait for admin confirm',1=>'Doing and shipping',2=>'Done',3=>'Cancel'],isset($search) ? $search : 4, ['class' => 'form-control','data-token'=> csrf_token() ,'onchange'=>"searchOrder(this)"]) }}--}}
-        {{--        </div>--}}
+                <div class="card-body">
+                    <label for="search">Seach</label>
+                    {{ Form::select('search', [0=>'ALL',1=>'Wait for admin confirm',2=>'Done',3=>'Cancel'],isset($search) ? $search : 4, ['class' => 'form-control','data-token'=> csrf_token() ,'onchange'=>"searchWithdrawal(this)"]) }}
+                </div>
     </div>
     <div class="card mb-4 mt-5">
         <div class="card-body">
