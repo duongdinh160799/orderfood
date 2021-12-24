@@ -16,7 +16,7 @@ class CreateCoinRechargesTable extends Migration
         Schema::create('coin_recharges', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('coin');
+            $table->float('coin');
             $table->string('code');
             $table->integer('status')->comment('1: gui yeu cau - 2: xac nhan - 3: tư choi');
             $table->integer('payment_type')->comment('sẽ update sau nếu có liên kết nhiều ví');

@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('address')->default('');
             $table->string('description')->default('');
             $table->integer('payment_type')->default(0)->comment('1-Cash On Delivery, 2-Wallet');
-            $table->integer('total')->default(0);
+            $table->float('total')->default(0);
             $table->integer('status')->default(0)->comment('0-Yet to be delivered, 1-Shipping, 2-Done, 3-Cancel');
             $table->integer('deleted')->default(0)->comment('0 - not delete , 1 - delete');
             $table->timestamps();

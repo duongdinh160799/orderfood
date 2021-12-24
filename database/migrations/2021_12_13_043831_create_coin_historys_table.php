@@ -16,7 +16,7 @@ class CreateCoinHistorysTable extends Migration
         Schema::create('coin_histories', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->double('coin');
+            $table->float('coin');
             $table->integer('object_id');
             $table->integer('object_type')->comment('0-thanh toán đơn hàng, 1-Nạp tiền, 2-Rút tiền');
             $table->timestamps();

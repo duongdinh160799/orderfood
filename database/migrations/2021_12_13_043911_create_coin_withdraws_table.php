@@ -16,7 +16,7 @@ class CreateCoinWithdrawsTable extends Migration
         Schema::create('coin_withdraws', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('coin');
+            $table->float('coin');
             $table->string('account_name');
             $table->string('account_number');
             $table->string('bank_name');
